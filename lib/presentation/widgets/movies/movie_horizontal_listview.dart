@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_cinema/config/helpers/human_formats.dart';
 import 'package:flutter_app_cinema/domain/entities/movie.dart';
 
 class MovieHorizontalListview extends StatelessWidget {
@@ -35,6 +36,7 @@ class MovieHorizontalListview extends StatelessWidget {
               return FadeInRight(child: _Slide(movie: widget.movies[index]));
             },
           )),
+          
         ],
       ),
     );
