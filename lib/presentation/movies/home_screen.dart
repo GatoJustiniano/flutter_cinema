@@ -30,6 +30,8 @@ class _HomeViewState extends ConsumerState<_HomeView> {
     super.initState();
     ref.read(nowPlayingMoviesProvider.notifier).loadNextPage();
     ref.read(popularMoviesProvider.notifier).loadNextPage();
+    ref.read(topRatedMoviesProvider.notifier).loadNextPage();
+    ref.read(upcomingMoviesProvider.notifier).loadNextPage();
   }
 
   @override
@@ -37,6 +39,8 @@ class _HomeViewState extends ConsumerState<_HomeView> {
     final nowPlayMovies = ref.watch(nowPlayingMoviesProvider);
     final moviesSlideShow = ref.watch(moviesSlideshowProvider);
     final popularMovies = ref.watch(popularMoviesProvider);
+    final topRatedMovies = ref.watch(topRatedMoviesProvider);
+    final upcomingMovies = ref.watch(upcomingMoviesProvider);
     if (nowPlayMovies.isEmpty) return const CircularProgressIndicator();
     return CustomScrollView(
       slivers: [
@@ -61,19 +65,27 @@ class _HomeViewState extends ConsumerState<_HomeView> {
                       .loadNextPage(),
                 ),
                 MovieHorizontalListview(
-                  movies: nowPlayMovies,
-                  title: 'Próximamente',
-                  subTitle: 'Este mes',
-                  loadNextPage: () => ref
-                      .read(nowPlayingMoviesProvider.notifier)
-                      .loadNextPage(),
-                ),
-                MovieHorizontalListview(
                   movies: popularMovies,
                   title: 'Populares',
                   subTitle: '',
                   loadNextPage: () => ref
                       .read(popularMoviesProvider.notifier)
+                      .loadNextPage(),
+                ),
+                MovieHorizontalListview(
+                  movies: topRatedMovies,
+                  title: 'Mejor calificados',
+                  subTitle: '',
+                  loadNextPage: () => ref
+                      .read(topRatedMoviesProvider.notifier)
+                      .loadNextPage(),
+                ),
+                MovieHorizontalListview(
+                  movies: upcomingMovies,
+                  title: 'Próximos',
+                  subTitle: '',
+                  loadNextPage: () => ref
+                      .read(upcomingMoviesProvider.notifier)
                       .loadNextPage(),
                 ),
                 const SizedBox(height: 15),
