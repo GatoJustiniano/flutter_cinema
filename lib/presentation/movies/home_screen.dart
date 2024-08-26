@@ -36,16 +36,50 @@ class _HomeViewState extends ConsumerState<_HomeView> {
     final nowPlayMovies = ref.watch(nowPlayingMoviesProvider);
     final moviesSlideShow = ref.watch(moviesSlideshowProvider);
     if (nowPlayMovies.isEmpty) return const CircularProgressIndicator();
-    return Column(
-      children: [
-        const CustomAppBar(),
-        MoviesSlideshow(movies: moviesSlideShow),
-        MovieHorizontalListview(
-          movies: nowPlayMovies,
-          title: 'En cines',
-          subTitle: 'Lunes a Viernes',
-          loadNextPage: () => ref.read(nowPlayingMoviesProvider.notifier).loadNextPage(),
+    return CustomScrollView(
+      slivers: [
+        const SliverAppBar(
+          floating: true,
+          flexibleSpace: FlexibleSpaceBar(
+            title: CustomAppBar(),
+          ),
         ),
+        SliverList(
+            delegate: SliverChildBuilderDelegate(
+          (context, index) {
+            return Column(
+              children: [
+                MoviesSlideshow(movies: moviesSlideShow),
+                MovieHorizontalListview(
+                  movies: nowPlayMovies,
+                  title: 'En cines',
+                  subTitle: 'Lunes a Viernes',
+                  loadNextPage: () => ref
+                      .read(nowPlayingMoviesProvider.notifier)
+                      .loadNextPage(),
+                ),
+                MovieHorizontalListview(
+                  movies: nowPlayMovies,
+                  title: 'Próximamente',
+                  subTitle: 'Este mes',
+                  loadNextPage: () => ref
+                      .read(nowPlayingMoviesProvider.notifier)
+                      .loadNextPage(),
+                ),
+                MovieHorizontalListview(
+                  movies: nowPlayMovies,
+                  title: 'Populares',
+                  subTitle: '',
+                  loadNextPage: () => ref
+                      .read(nowPlayingMoviesProvider.notifier)
+                      .loadNextPage(),
+                ),
+                const SizedBox(height: 15),
+              ],
+            );
+          },
+          childCount: 1,
+        )),
       ],
     );
   }

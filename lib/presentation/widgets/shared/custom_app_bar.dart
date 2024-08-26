@@ -22,7 +22,7 @@ class CustomAppBar extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               Text(
-                'La Garrita',
+                'LA GARRITA',
                 style: titleStyle,
               ),
               const Spacer(),
