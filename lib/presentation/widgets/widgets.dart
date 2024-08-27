@@ -1,3 +1,5 @@
+export 'shared/full_screen_loader.dart';
+
 export 'movies/movie_horizontal_listview.dart';
 
 export 'shared/custom_app_bar.dart';
