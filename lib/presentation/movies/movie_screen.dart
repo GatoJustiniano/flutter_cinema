@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_cinema/presentation/widgets/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:animate_do/animate_do.dart';
 
@@ -89,6 +90,7 @@ class _MovieDetails extends StatelessWidget {
                   children: [
                     Text(movie.title, style: textStyles.titleLarge),
                     Text(movie.overview),
+                    InfoRatingMovie(popularity: movie.popularity, voteAverage: movie.voteAverage,)
                   ],
                 ),
               )

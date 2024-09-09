@@ -10,4 +10,14 @@ class HumanFormats{
 
     return formatterNumber;
   }
+
+  static String numberWith2decimal(double number) {
+    final formatterNumber = NumberFormat.compactCurrency(
+      decimalDigits: 2,
+      symbol: '',
+      locale: 'en',
+    ).format(number);
+
+    return formatterNumber;
+  }
 }
