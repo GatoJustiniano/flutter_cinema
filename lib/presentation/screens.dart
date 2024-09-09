@@ -1,1 +1,2 @@
-export 'package:flutter_app_cinema/presentation/movies/home_screen.dart';
+export 'movies/home_screen.dart';
+export 'movies/movie_screen.dart';
