@@ -14,9 +14,10 @@ class InfoRatingMovie extends StatelessWidget {
       children: [
         Icon(Icons.star_half_outlined, color: Colors.yellow.shade800),
         const SizedBox(width: 3),
-        Text(HumanFormats.numberWith2decimal(voteAverage!),
-            style:
-                textStyles.bodyMedium?.copyWith(color: Colors.yellow.shade800)),
+        Text(
+          HumanFormats.numberWith2decimal(voteAverage!),
+          style: textStyles.bodyMedium?.copyWith(color: Colors.yellow.shade800),
+        ),
         const Spacer(),
         Text(HumanFormats.number(popularity!), style: textStyles.bodySmall),
       ],
