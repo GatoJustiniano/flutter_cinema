@@ -168,10 +168,11 @@ class _MovieItem extends StatelessWidget {
                           color: Colors.yellow.shade800),
                       const SizedBox(width: 5),
                       Text(
-                        HumanFormats.number(movie.voteAverage, 1),
+                        HumanFormats.number(movie.voteAverage, 2),
                         style: textStyles.bodyMedium!
                             .copyWith(color: Colors.yellow.shade900),
                       ),
+                      Text(movie.id.toString()),
                     ],
                   )
                 ],

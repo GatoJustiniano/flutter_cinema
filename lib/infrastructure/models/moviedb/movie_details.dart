@@ -63,10 +63,10 @@ class MovieDetails {
         genres: List<Genre>.from(json["genres"].map((x) => Genre.fromJson(x))),
         homepage: json["homepage"],
         id: json["id"],
-        imdbId: json["imdb_id"],
+        imdbId: json["imdb_id"] ?? '',
         originalLanguage: json["original_language"],
         originalTitle: json["original_title"],
-        overview: json["overview"],
+        overview: json["overview"] ?? '',
         popularity: json["popularity"]?.toDouble(),
         posterPath: json["poster_path"],
         productionCompanies: List<ProductionCompany>.from(
@@ -138,8 +138,8 @@ class BelongsToCollection {
       BelongsToCollection(
         id: json["id"],
         name: json["name"],
-        posterPath: json["poster_path"],
-        backdropPath: json["backdrop_path"],
+        posterPath: json["poster_path"] ?? '',
+        backdropPath: json["backdrop_path"] ?? '',
       );
 
   Map<String, dynamic> toJson() => {
