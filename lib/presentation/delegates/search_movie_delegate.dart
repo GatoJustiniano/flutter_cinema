@@ -172,7 +172,10 @@ class _MovieItem extends StatelessWidget {
                         style: textStyles.bodyMedium!
                             .copyWith(color: Colors.yellow.shade900),
                       ),
+                      const SizedBox(width: 3),
                       Text(movie.id.toString()),
+                      const Spacer(),
+                      (movie.adult) ? const Text('Adult') : const Text('')
                     ],
                   )
                 ],

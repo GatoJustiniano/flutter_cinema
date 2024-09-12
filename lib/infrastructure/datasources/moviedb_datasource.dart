@@ -74,7 +74,7 @@ class MovieDBDataSource extends MoviesDatasource {
     if (query.isEmpty) return [];
 
     final response =
-        await dio.get('/search/movie', queryParameters: {'query': query});
+        await dio.get('/search/movie', queryParameters: {'query': query, 'include_adult': true});
 
     return _jsonToMovies(response.data);
   }
