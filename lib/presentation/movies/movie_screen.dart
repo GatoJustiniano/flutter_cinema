@@ -90,7 +90,6 @@ class _MovieDetails extends StatelessWidget {
                   children: [
                     Text(movie.title, style: textStyles.titleLarge),
                     Text(movie.overview),
-                    Text('el id es: ${movie.id}'),
                     InfoRatingMovie(popularity: movie.popularity, voteAverage: movie.voteAverage,)
                   ],
                 ),
