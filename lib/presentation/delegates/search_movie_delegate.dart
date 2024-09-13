@@ -4,6 +4,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_cinema/config/helpers/human_formats.dart';
 import 'package:flutter_app_cinema/domain/entities/movie.dart';
+import 'package:flutter_app_cinema/presentation/widgets/widgets.dart';
 
 typedef SearchMoviesCallback = Future<List<Movie>> Function(String query);
 
@@ -173,9 +174,9 @@ class _MovieItem extends StatelessWidget {
                             .copyWith(color: Colors.yellow.shade900),
                       ),
                       const SizedBox(width: 3),
-                      Text(movie.id.toString()),
                       const Spacer(),
-                      (movie.adult) ? const Text('Adult') : const Text('')
+                      CopyTextButton(textToCopy: movie.id.toString()),
+                      (movie.adult) ? const Text(' Adult') : const Text(' ')
                     ],
                   )
                 ],
