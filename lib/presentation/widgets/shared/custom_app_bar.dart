@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_cinema/config/constant/environment.dart';
 import 'package:flutter_app_cinema/domain/entities/movie.dart';
 import 'package:flutter_app_cinema/presentation/delegates/search_movie_delegate.dart';
 import 'package:flutter_app_cinema/presentation/providers/providers.dart';
@@ -27,7 +28,7 @@ class CustomAppBar extends ConsumerWidget {
               ),
               const SizedBox(height: 20),
               Text(
-                'LA GARRITA',
+                Environment.titleApp,
                 style: titleStyle,
               ),
               const Spacer(),
