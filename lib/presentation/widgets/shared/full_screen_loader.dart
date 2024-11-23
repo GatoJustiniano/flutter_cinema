@@ -25,9 +25,9 @@ class FullScreenLoader extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Text('Espere por favor'),
-          const SizedBox(height: 20),
-          const CircularProgressIndicator(strokeAlign: 2),
-          const SizedBox(height: 20),
+          const SizedBox(height: 10),
+          const CircularProgressIndicator(strokeWidth: 2),
+          const SizedBox(height: 10),
           StreamBuilder(
             stream: getLoadingMessages(),
             builder: (context, snapshot) {
